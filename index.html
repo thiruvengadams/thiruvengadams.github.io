@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiruvengadam S - AI/ML Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 60px;
+            color: #666;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        nav {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #f0f3ff;
+            color: #667eea;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #e0e7ff;
+        }
+
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .publication-card, .patent-card, .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .publication-card:hover, .patent-card:hover, .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .publication-card h3, .patent-card h3, .project-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .experience-timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            position: relative;
+            margin-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -11px;
+            top: 50px;
+            width: 2px;
+            height: calc(100% + 30px);
+            background: #e0e7ff;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .job-title {
+            color: #667eea;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .achievement-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .achievement-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .contact-info {
+                gap: 15px;
+            }
+
+            .nav-container {
+                gap: 20px;
+            }
+
+            .publications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                margin-left: 20px;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .contact-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-img">👨‍💼</div>
+            <h1>Thiruvengadam S</h1>
+            <p class="subtitle">AI/ML Researcher | Driving Innovation in Mobility and Industrial Automation</p>
+            <div class="contact-info">
+                <a href="https://www.linkedin.com/in/thiruvengadamsamon" class="contact-item" target="_blank">
+                    💼 LinkedIn
+                </a>
+                <div class="contact-item">
+                    📍 Bengaluru, Karnataka, India
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#patents" class="nav-link">Patents</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#achievements" class="nav-link">Achievements</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    With five years of dedicated experience as an AI Researcher at Hitachi R&D, I have a proven track record of pioneering innovative AI solutions from concept to patent. My work focuses on leveraging cutting-edge technologies like Generative AI, Visual Language Models (VLMs), and advanced time-series analysis to solve complex challenges in mobility, industrial automation, and finance.
+                </p>
+                <p style="font-size: 1.1rem;">
+                    I am passionate about translating theoretical research into tangible, high-impact applications and am currently seeking an AI Engineer or Data Scientist role where I can continue to drive technological advancements.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>AI/ML Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">Large Language Models</span>
+                        <span class="skill-tag">Visual Language Models</span>
+                        <span class="skill-tag">Time-Series Analysis</span>
+                        <span class="skill-tag">GANs</span>
+                        <span class="skill-tag">Self-Attention Mechanisms</span>
+                        <span class="skill-tag">Machine Learning</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Domain Expertise</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Mobility & Smart Cities</span>
+                        <span class="skill-tag">Industrial Automation</span>
+                        <span class="skill-tag">Green Finance</span>
+                        <span class="skill-tag">Agri-Tech</span>
+                        <span class="skill-tag">Speech Recognition</span>
+                        <span class="skill-tag">Payments</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Amazon Web Services</span>
+                        <span class="skill-tag">Engineering</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Data Analytics</span>
+                        <span class="skill-tag">ETL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Key Achievements</h2>
+            <div class="achievements">
+                <div class="achievement-card">
+                    <div class="achievement-number">6</div>
+                    <div class="achievement-label">Research Papers Published</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">4</div>
+                    <div class="achievement-label">Patents Filed</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">5+</div>
+                    <div class="achievement-label">Years at Hitachi R&D</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">7</div>
+                    <div class="achievement-label">Active Projects</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="job-title">Researcher</div>
+                    <div class="company">Hitachi R&D</div>
+                    <div class="duration">June 2025 - Present</div>
+                    <p>Leading cutting-edge AI research initiatives, focusing on next-generation applications in mobility and industrial automation.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="job-title">Senior Research Engineer</div>
+                    <div class="company">Hitachi R&D</div>
+                    <div class="duration">June 2023 - July 2025</div>
+                    <p>Advanced to senior role, leading research teams and driving innovation in AI/ML solutions for complex business problems.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="job-title">Research Engineer</div>
+                    <div class="company">Hitachi R&D</div>
+                    <div class="duration">March 2020 - June 2023</div>
+                    <p>Owned end-to-end business problems and metrics, built and implemented AI, ML solutions using cutting-edge technology. Created scalable solutions using statistical techniques, machine learning and NLP.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="job-title">Data Analyst</div>
+                    <div class="company">QubeRoot Analytics</div>
+                    <div class="duration">January 2019 - March 2020</div>
+                    <p>Assessed ML-based feature requests for feasibility, worked with Product and Engineering teams to define end-to-end ML solutions.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="job-title">Graduate Engineering Trainee</div>
+                    <div class="company">Lucas TVS</div>
+                    <div class="duration">June 2016 - May 2018</div>
+                    <p>Served as Integration Lead for AutoStore material storage system, performed Data & Analytics by creating reports and visualizations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Research Publications</h2>
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <h3>Enhancing Circuit Diagram Understanding via Near-Sight Correction Using VLMs</h3>
+                    <p>Advanced research on improving circuit diagram interpretation through Visual Language Models with near-sight correction mechanisms.</p>
+                </div>
+                <div class="publication-card">
+                    <h3>Enhancing Missing Data Imputation Using Generative Adversarial Self Attention</h3>
+                    <p>Novel approach combining generative adversarial networks with self-attention mechanisms for superior data imputation performance.</p>
+                </div>
+                <div class="publication-card">
+                    <h3>Enhancing Smart City Mobility: Evaluating Imputation Models for ITS</h3>
+                    <p>Comprehensive evaluation of imputation models for sensor data in intelligent transportation systems, presented at Smart City Workshop 2023.</p>
+                </div>
+                <div class="publication-card">
+                    <h3>TA-SAITS: Time Aware-Self Attention based Imputation</h3>
+                    <p>Innovative algorithm for time-series imputation in partially observable multi-variate scenarios using time-aware self-attention.</p>
+                </div>
+                <div class="publication-card">
+                    <h3>Speech Features for Connected Number Recognition</h3>
+                    <p>Comparative analysis of different speech features for connected number recognition in Indian vernacular languages.</p>
+                </div>
+                <div class="publication-card">
+                    <h3>Forecasting Passenger Flow and Delay in Bus Transit</h3>
+                    <p>Machine learning approach for predicting passenger flow and delays with data imputation based on acceptable wait times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="patents">
+        <div class="container">
+            <h2 class="section-title">Patents</h2>
+            <div class="publications-grid">
+                <div class="patent-card">
+                    <h3>AI-Assisted Engineering Diagram Interpretation</h3>
+                    <p>System and method for engineering diagram interpretation utilizing near-sight correction with Visual Language Models.</p>
+                </div>
+                <div class="patent-card">
+                    <h3>AI-Assisted Data Procurement for Fleet Operations</h3>
+                    <p>Innovative system for ensuring accurate data procurement in fleet operations through AI-powered imputation techniques.</p>
+                </div>
+                <div class="patent-card">
+                    <h3>Bus Stop Passenger Flow Prediction</h3>
+                    <p>Advanced system for predicting passenger flow at bus stops while considering passenger drop-out risk factors.</p>
+                </div>
+                <div class="patent-card">
+                    <h3>Dynamic Intent Generation in Conversational AI</h3>
+                    <p>Automated system for generating dynamic intents in conversational AI systems, enhancing user interaction capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Current Projects</h2>
+            <div class="publications-grid">
+                <div class="project-card">
+                    <h3>Payments</h3>
+                    <p>Developing AI-driven solutions for secure and efficient payment processing systems.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Speech Recognition</h3>
+                    <p>Advanced speech recognition systems for multilingual and cross-domain applications.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Mobility</h3>
+                    <p>Smart mobility solutions leveraging AI for improved transportation systems and urban planning.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Generative AI for Green Finance</h3>
+                    <p>AI applications in carbon tracking, green lending, and green washing detection for sustainable finance.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Agri LLM</h3>
+                    <p>Large Language Model specifically designed for agricultural applications and farm management.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Circuit VQA</h3>
+                    <p>Visual Question Answering system for circuit diagrams and electrical engineering applications.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Industrial Automation</h3>
+                    <p>AI-powered solutions for manufacturing automation and industrial process optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-section">
+                <h3>Let's Collaborate</h3>
+                <p>I'm always interested in discussing innovative AI research opportunities, potential collaborations, or how my expertise can contribute to your organization's technological advancement.</p>
+                <a href="mailto:thiruvengadamsamon@gmail.com" class="contact-button">
+                    📧 Send me an email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Thiruvengadam S. All rights reserved.</p>
+            <p style="margin-top: 10px;">Ready to collaborate on cutting-edge AI research and development projects.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#667eea';
+                    link.style.color = 'white';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
