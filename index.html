@@ -7,7 +7,7 @@
 <!-- Primary SEO -->
 <title>Thiruvengadam S — AI Researcher | Generative AI, NLP & Mobility</title>
 <meta name="description" content="Thiruvengadam S — Staff AI Researcher at Hitachi R&D, Bengaluru. 9+ years building production GenAI: agentic & multi-agent RAG, MCP tool integrations, multimodal/document retrieval, evaluation pipelines, and Vision-LLMs. Published at ICCV, ICMLA & IEEE BigData; 2 patents.">
-<meta name="keywords" content="Thiruvengadam Samon, AI Engineer, AI Researcher, Generative AI, Agentic AI, Multi-Agent RAG, RAG, MCP, Model Context Protocol, LLM, Vision Language Models, Multimodal Retrieval, ColPali, Reranking, LLM Evaluation, Evals, LLM-as-a-judge, Guardrails, NLP, Speech Recognition, Time-Series, Hitachi R&D">
+<meta name="keywords" content="Thiruvengadam Samon, AI Engineer, AI Researcher, Generative AI, Agentic AI, Multi-Agent RAG, RAG, MCP, Model Context Protocol, LLM, Vision Language Models, Multimodal Retrieval, ColPali, Reranking, FAISS, Qdrant, Chroma, pgvector, Milvus, LLM Evaluation, Evals, RAGAS, LangSmith, LLM-as-a-judge, Guardrails, NLP, Speech Recognition, Time-Series, Hitachi R&D">
 <meta name="author" content="Thiruvengadam S">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://thiruvengadams.github.io/">
@@ -100,7 +100,8 @@
   --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body,h1,h2,h3,h4,p,a,li{overflow-wrap:break-word}
 body{
   font-family:var(--sans);background:var(--bg);color:var(--text);
   line-height:1.65;font-size:17px;
@@ -145,7 +146,7 @@ header.nav{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;color:var(--accent);margin-bottom:18px}
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
-.hero h1{font-size:clamp(2.6rem,6vw,4rem);margin-bottom:14px}
+.hero h1{font-size:clamp(2.1rem,8vw,4rem);margin-bottom:14px;overflow-wrap:break-word}
 .lead{font-size:clamp(1.15rem,2.2vw,1.4rem);color:var(--text);font-weight:500;max-width:32ch;margin-bottom:18px}
 .intro{color:var(--muted);max-width:56ch;margin-bottom:28px}
 .avatar{width:188px;height:188px;border-radius:50%;object-fit:cover;object-position:50% 18%;
@@ -246,7 +247,8 @@ section{padding:64px 0;border-top:1px solid var(--border)}
 
 /* about + skills */
 .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
-@media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:30px}}
+.about-grid--even{grid-template-columns:1fr 1fr}
+@media(max-width:760px){.about-grid,.about-grid--even{grid-template-columns:1fr;gap:30px}}
 .about p{color:var(--muted);margin-bottom:16px}
 .about strong{color:var(--text)}
 .panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px}
@@ -305,7 +307,7 @@ footer a{color:var(--muted)}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Staff AI Researcher · Hitachi R&amp;D</span>
-      <h1>Thiruvengadam&nbsp;S</h1>
+      <h1>Thiruvengadam S</h1>
       <p class="lead">I design, ship and evaluate production GenAI — agentic &amp; multi-agent RAG, multimodal retrieval, and the evals that keep them honest.</p>
       <p class="intro">Nine-plus years across data and AI — the last six at Hitachi's R&amp;D Center, Bengaluru — taking systems from hypothesis to patent and production. I work on <strong>agentic &amp; multi-agent RAG</strong> (planner / retriever / validator agents, MCP tool integrations, human-in-the-loop guardrails), <strong>multimodal &amp; document retrieval</strong> with Vision-LLMs, and <strong>evaluation pipelines</strong> for RAG and agents — alongside time-series intelligence for mobility. Published at ICCV, ICMLA &amp; IEEE BigData, with 2 patents.</p>
       <div class="links">
@@ -646,7 +648,7 @@ footer a{color:var(--muted)}
       <span class="kicker">Toolbox</span>
       <h2>Skills &amp; tools</h2>
     </div>
-    <div class="about-grid" style="grid-template-columns:1fr 1fr">
+    <div class="about-grid about-grid--even">
       <div>
         <div class="skillset">
           <h4>Agentic &amp; GenAI systems</h4>
@@ -661,7 +663,8 @@ footer a{color:var(--muted)}
           <h4>Retrieval (RAG)</h4>
           <div class="chips">
             <span class="chip">Chunking strategies</span><span class="chip">Embeddings</span>
-            <span class="chip">Vector databases</span><span class="chip">Hybrid search</span>
+            <span class="chip">FAISS</span><span class="chip">Chroma</span><span class="chip">Qdrant</span>
+            <span class="chip">pgvector</span><span class="chip">Milvus</span><span class="chip">Hybrid search</span>
             <span class="chip">Reranking</span><span class="chip">ColPali / multimodal doc retrieval</span>
             <span class="chip">Long-context</span>
           </div>
@@ -670,6 +673,7 @@ footer a{color:var(--muted)}
           <h4>Evaluation &amp; governance</h4>
           <div class="chips">
             <span class="chip">Offline eval sets</span><span class="chip">LLM-as-a-judge</span>
+            <span class="chip">RAGAS</span><span class="chip">LangSmith</span>
             <span class="chip">Human calibration</span><span class="chip">Retrieval metrics</span>
             <span class="chip">Traces &amp; observability</span><span class="chip">Human-in-the-loop</span>
             <span class="chip">Guardrails</span>
